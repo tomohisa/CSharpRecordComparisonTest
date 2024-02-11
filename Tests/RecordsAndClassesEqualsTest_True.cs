@@ -15,6 +15,17 @@ public class RecordsAndClassesEqualsTest_True
         Assert.Equal(record1, record2);
     }
     [Fact]
+    public void SimpleClassWithEquatable()
+    {
+        var class1 = new SimpleClassWithEquatable(1, "Test");
+        var class2 = new SimpleClassWithEquatable(1, "Test");
+        Assert.True(class1 == class2);
+        Assert.True(class1.Equals(class2));
+        Assert.False(class1 != class2);
+        Assert.False(!class1.Equals(class2));
+        Assert.Equal(class1, class2);
+    }
+    [Fact]
     public void SimpleRecordWithListWithEqualsOverrides()
     {
         var record1 = new SimpleRecordWithListWithEqualsOverrides(1, "Test", new List<int> { 1, 2, 3 });
