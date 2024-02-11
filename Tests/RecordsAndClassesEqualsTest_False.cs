@@ -2,7 +2,7 @@ using CSharpRecordComparisonTest.TargetClasses;
 using System.Collections.Immutable;
 namespace CSharpRecordComparisonTest.Tests;
 
-public class CasesThatCan_NOT_EqualsEasily
+public class RecordsAndClassesEqualsTest_False
 {
     [Fact]
     public void SimpleClass()
@@ -15,6 +15,7 @@ public class CasesThatCan_NOT_EqualsEasily
 
         Assert.True(simpleClass1 != simpleClass2);
         Assert.True(!simpleClass1.Equals(simpleClass2));
+        Assert.NotEqual(simpleClass1, simpleClass2);
     }
     [Fact]
     public void SimpleRecordWithList()
@@ -25,6 +26,7 @@ public class CasesThatCan_NOT_EqualsEasily
         Assert.False(record1.Equals(record2));
         Assert.True(record1 != record2);
         Assert.True(!record1.Equals(record2));
+        Assert.NotEqual(record1, record2);
     }
 
     [Fact]
@@ -37,6 +39,7 @@ public class CasesThatCan_NOT_EqualsEasily
         Assert.False(record1.Equals(record2));
         Assert.True(record1 != record2);
         Assert.True(!record1.Equals(record2));
+        Assert.NotEqual(record1, record2);
     }
     [Fact]
     public void SimpleRecordWithListAndSubclassWithoutEqualsOverrideWithEqualsOverrides()
@@ -62,5 +65,6 @@ public class CasesThatCan_NOT_EqualsEasily
         Assert.False(record1.Equals(record2));
         Assert.True(record1 != record2);
         Assert.True(!record1.Equals(record2));
+        Assert.NotEqual(record1, record2);
     }
 }

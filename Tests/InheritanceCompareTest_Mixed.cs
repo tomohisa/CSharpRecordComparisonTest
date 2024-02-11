@@ -1,3 +1,4 @@
+using CSharpRecordComparisonTest.TargetClasses;
 namespace CSharpRecordComparisonTest.Tests;
 
 public class InheritanceCompareTest_Mixed
@@ -16,6 +17,29 @@ public class InheritanceCompareTest_Mixed
 
         Assert.Equal(record1, record2);
     }
+
+    [Fact]
+    public void SameRecordWithEqualsOverridesTypeThroughInterface()
+    {
+        IBaseWithArray record1 = new RecordWithArrayWithEqualsOverrides(
+            1,
+            "Test",
+            new List<string>
+                { "1", "2", "3" });
+        IBaseWithArray record2 = new RecordWithArrayWithEqualsOverrides(
+            1,
+            "Test",
+            new List<string>
+                { "1", "2", "3" });
+        Assert.False(record1 == record2);
+        Assert.True(record1.Equals(record2));
+
+        Assert.True(record1 != record2);
+        Assert.False(!record1.Equals(record2));
+
+        Assert.Equal(record1, record2);
+    }
+
 
     [Fact]
     public void SameRecordTypeThroughObject()

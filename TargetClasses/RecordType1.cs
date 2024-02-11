@@ -1,4 +1,4 @@
-namespace CSharpRecordComparisonTest.Tests;
+namespace CSharpRecordComparisonTest.TargetClasses;
 
 public record RecordType1(int Id, string Name) : IBase
 {

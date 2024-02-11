@@ -1,3 +1,4 @@
+using CSharpRecordComparisonTest.TargetClasses;
 using Microsoft.CSharp.RuntimeBinder;
 namespace CSharpRecordComparisonTest.Tests;
 
@@ -88,5 +89,20 @@ public class InheritanceCompareTest_False
         Assert.True(!record1.Equals(record2));
         // can not do this because of dynamic
         // Assert.NotEqual(record1, record2);
+    }
+
+    [Fact]
+    public void SameRecordTypeWithArrayThroughInterface()
+    {
+        IBaseWithArray record1 = new RecordWithArray1(1, "Test", new List<string> { "1", "2", "3" });
+        IBaseWithArray record2 = new RecordWithArray1(1, "Test", new List<string> { "1", "2", "3" });
+
+        Assert.False(record1 == record2);
+        Assert.False(record1.Equals(record2));
+
+        Assert.True(record1 != record2);
+        Assert.True(!record1.Equals(record2));
+
+        Assert.NotEqual(record1, record2);
     }
 }

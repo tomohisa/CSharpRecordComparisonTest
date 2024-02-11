@@ -1,4 +1,4 @@
-namespace CSharpRecordComparisonTest.Tests;
+namespace CSharpRecordComparisonTest.TargetClasses;
 
 public interface IBase
 {
